@@ -11,6 +11,8 @@
             <th scope="col">Description</th>
             <th scope="col">Price</th>
             <th scope="col">Quantity</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -19,6 +21,11 @@
             <td>{{product.description}}</td>
             <td>{{product.price}}</td>
             <td>{{product.quantity}}</td>
+            <td class="text-center"></td>
+            <div>
+              <button (click)="editProduct(product.productId)" class="btn btn-warning btn-sm me-3">Edit</button>
+              <button (click)="deleteProduct(product.productId)" class="btn btn-danger btn-sm">Delete</button>
+            </div>
           </tr>
         </tbody>
       </table>

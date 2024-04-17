@@ -28,4 +28,32 @@ export class ProductService {
   addProduct(product: Product): Observable<Object> {
     return this.httpClient.post(this.baseUrl, product); // Make a POST request to add a product
   }
+
+  /**
+   * Retrieves a product by its ID from the server.
+   * @param id The ID of the product to retrieve
+   * @returns An Observable of type Product
+   */
+  getProductById(id: number): Observable<Product> {
+    return this.httpClient.get<Product>(`${this.baseUrl}/${id}`); // Make a GET request to retrieve a product by ID
+  }
+
+  /**
+   * Updates a product on the server.
+   * @param id The ID of the product to update
+   * @param product The updated product information
+   * @returns An Observable of type Object
+   */
+  editProduct(id: number, product: Product): Observable<Object> {
+    return this.httpClient.put(`${this.baseUrl}/${id}`, product); // Make a PUT request to update a product
+  }
+
+  /**
+   * Deletes a product from the server.
+   * @param id The ID of the product to delete
+   * @returns An Observable of type Object
+   */
+  deleteProduct(id: number): Observable<Object> {
+    return this.httpClient.delete(`${this.baseUrl}/${id}`); // Make a DELETE request to delete a product
+  }
 }
